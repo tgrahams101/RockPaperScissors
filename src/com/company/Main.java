@@ -13,7 +13,7 @@ public class Main {
             active = true;
         }
         while (active) {
-            RockPaperScissors.testScanner(scanner);
+            RockPaperScissors.startGameModule(scanner);
 
             System.out.println("Continue Game? press exit to leave");
             String exitCheck = scanner.next();
