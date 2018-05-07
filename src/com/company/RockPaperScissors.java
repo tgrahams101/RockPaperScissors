@@ -1,46 +1,33 @@
 package com.company;
 
-import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
-
-import java.util.Random;
 import java.util.Scanner;
 
 public class RockPaperScissors {
 
-    public static void testScanner(Scanner scanner) {
-        String[] rpsChoices = {"rock", "paper", "scissors"};
-        System.out.println("Enter your choice for RPS");
-        String choice = scanner.next().toLowerCase();
-        Random random = new Random();
-        int randomInteger = random.nextInt(2);
-        System.out.println("RANDOM INTEGER IS " + randomInteger);
-        String cpuChoice = rpsChoices[randomInteger].toLowerCase();
-        System.out.println("cpu Choice is " + cpuChoice );
-        System.out.println("My choice tho is " + choice);
-        if (choice.toLowerCase().equals(cpuChoice.toLowerCase())) {
-            System.out.println("Ya'll tied");
-        } else if (choice.equals("rock")) {
-            if (cpuChoice.equals("paper")) {
-                System.out.println("YOU LOST BRO!");
-            } else if (cpuChoice.equals("scissors")) {
-                System.out.println("YESSIR, WE GOTTA WINNER OVER HERE");
-            }
-        } else if (choice.equals("paper")) {
-            if (cpuChoice.equals("rock")) {
-                System.out.println("YESSIR, WE GOTTA WINNER OVER HERE");
-            } else if (cpuChoice.equals("scissors")) {
-                System.out.println("YOU LOST BRO!");
-            }
-        } else if (choice.equals("scissors")) {
-            if (cpuChoice.equals("rock")) {
-                System.out.println("YOU LOST BRO!");
-            } else if (cpuChoice.equals("paper")) {
-                System.out.println("YESSIR, WE GOTTA WINNER OVER HERE");
-            }
-        } else {
-            System.out.println("INVALID INPUT, TRY AGAIN");
+    private static int gamesPlayed = 0;
+
+    public static void startGameModule(Scanner scanner) {
+
+        boolean active = false;
+        System.out.println("Would you like to play Rock, Paper, Scissors?");
+        String answer = scanner.next();
+        if (!answer.toLowerCase().equals("no")) {
+            active = true;
         }
+
+        //log number of times RPS game played!
+        System.out.println(RockPaperScissors.getGamesPlayed());
+
+        Game game = new Game();
+        game.play(scanner);
+
     }
 
+    public static int getGamesPlayed() {
+        return gamesPlayed;
+    }
 
+    public static void incrementGamesPlayed() {
+        gamesPlayed++;
+    }
 }
