@@ -13,6 +13,7 @@ public class Main {
             active = true;
         }
         while (active) {
+            System.out.println(RockPaperScissors.getGamesPlayed());
             RockPaperScissors.startGameModule(scanner);
 
             System.out.println("Continue Game? press exit to leave");
