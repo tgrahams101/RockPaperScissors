@@ -12,14 +12,14 @@ public class RockPaperScissors {
         System.out.println("Would you like to play Rock, Paper, Scissors?");
         String answer = scanner.next();
         if (!answer.toLowerCase().equals("no")) {
-            active = true;
+
+            //log number of times RPS game played!
+            System.out.println(RockPaperScissors.getGamesPlayed());
+
+            Game game = new Game();
+            game.play(scanner);
         }
 
-        //log number of times RPS game played!
-        System.out.println(RockPaperScissors.getGamesPlayed());
-
-        Game game = new Game();
-        game.play(scanner);
 
     }
 
